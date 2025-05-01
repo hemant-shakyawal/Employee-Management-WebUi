@@ -6,7 +6,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
 
   {
-    path: 'employee',
+    path: '',
     component: LayoutComponent,
     children: [
       {
@@ -17,12 +17,12 @@ export const routes: Routes = [
           ).then((c) => c.EmployeeDetailsComponent),
       },
       {
-        path: 'employee',
+        path: 'add-employee',
         loadComponent: () =>
-          import(
-            './components/create-employee/create-employee.component'
-          ).then((c) => c.CreateEmployeeComponent),
+          import('./components/create-employee/create-employee.component').then(
+            (c) => c.CreateEmployeeComponent
+          ),
       },
     ],
-  }
+  },
 ];

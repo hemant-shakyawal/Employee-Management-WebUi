@@ -23,7 +23,7 @@ export class LoginComponent {
       this.loginObj.userName == 'admin' &&
       this.loginObj.password == '12345'
     ) {
-      this.router.navigateByUrl('employee');
+      this.router.navigate(['/employee-details']);
     } else {
       alert('Invalid login details');
     }
