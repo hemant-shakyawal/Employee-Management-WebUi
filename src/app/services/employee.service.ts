@@ -8,11 +8,14 @@ import { environment } from '../environments/environment.development';
   providedIn: 'root'
 })
 export class EmployeeService {
-
+ 
   constructor(private http:HttpClient) { }
 
   getEmployees():Observable<Employee[]>{
-    return this.http.get<Employee[]>(`${environment.apiUrl}/Employee`
+    return this.http.get<Employee[]>(`${environment.apiUrl}/employee`
     )
+  }
+  createEmployee(employee:Employee):Observable<Employee>{
+    return this.http.post<Employee>(`${environment.apiUrl}/employee`,employee)
   }
 }
