@@ -1,6 +1,9 @@
-<app-header></app-header>
-
+<app-header (toggleSidenav)="collapsed.set(!collapsed())"></app-header>
 <mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
-  <mat-sidenav-content>><router-outlet /></mat-sidenav-content>
+  <mat-sidenav mode="side" opened [style.width]="sidenavWidth()"
+    ><app-sidebarnav></app-sidebarnav
+  ></mat-sidenav>
+  <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()"
+    ><router-outlet
+  /></mat-sidenav-content>
 </mat-sidenav-container>
