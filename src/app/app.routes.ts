@@ -23,6 +23,13 @@ export const routes: Routes = [
             (c) => c.CreateEmployeeComponent
           ),
       },
+      {
+        path: 'edit/:id',
+        loadComponent: () =>
+          import('./components/create-employee/create-employee.component').then(
+            (c) => c.CreateEmployeeComponent
+          ),
+      },
     ],
   },
 ];

@@ -18,4 +18,7 @@ export class EmployeeService {
   createEmployee(employee:Employee):Observable<Employee>{
     return this.http.post<Employee>(`${environment.apiUrl}/employee`,employee)
   }
+  deleteEmployee(id:number):Observable<void>{
+    return this.http.delete<void>(`${environment.apiUrl}/employee/${id}`)
+  }
 }

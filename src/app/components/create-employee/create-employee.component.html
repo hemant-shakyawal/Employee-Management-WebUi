@@ -1,1 +1,43 @@
-<p>create-employee works!</p>
+
+<h1>Add Employee</h1>
+
+<form [formGroup]="useForm" class="example-form">
+  <p>
+    <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" />
+      <mat-error *ngIf="firstNameControl?.hasError('required')">First name is required</mat-error
+      >
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" />
+      <mat-error *ngIf="lastNameControl?.hasError('required')">Last name is required</mat-error
+      >
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>email</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>Position</mat-label>
+      <input matInput formControlName="position" />
+    </mat-form-field>
+  </p>
+  <p>
+  <button type="button" mat-flat-button [disabled]="!useForm.valid" (click)="onSubmit()">
+    Submit
+  </button></p>
+</form>
