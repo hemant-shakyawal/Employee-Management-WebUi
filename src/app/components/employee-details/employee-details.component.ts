@@ -4,13 +4,14 @@ import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../models/employee';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ActivatedRoute, Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 const ELEMENT_DATA: Employee[] = [];
 
 @Component({
   selector: 'app-employee-details',
-  imports: [MatTableModule, MatIconModule, MatTooltipModule],
+  imports: [MatTableModule, MatIconModule, MatButtonModule, MatTooltipModule],
   templateUrl: './employee-details.component.html',
   styleUrl: './employee-details.component.css',
 })
@@ -29,7 +30,7 @@ export class EmployeeDetailsComponent implements OnInit {
   constructor() {}
   employeeService = inject(EmployeeService);
   router = inject(Router);
-  route = inject(ActivatedRoute);
+
 
   ngOnInit(): void {
     this.getEmployees();

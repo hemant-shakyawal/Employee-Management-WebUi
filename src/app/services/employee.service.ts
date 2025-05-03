@@ -5,20 +5,24 @@ import { Employee } from '../models/employee';
 import { environment } from '../environments/environment.development';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EmployeeService {
- 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getEmployees():Observable<Employee[]>{
-    return this.http.get<Employee[]>(`${environment.apiUrl}/employee`
-    )
+  getEmployees(): Observable<Employee[]> {
+    return this.http.get<Employee[]>(`${environment.apiUrl}/employee`);
   }
-  createEmployee(employee:Employee):Observable<Employee>{
-    return this.http.post<Employee>(`${environment.apiUrl}/employee`,employee)
+  getEmployeeById(id: number): Observable<Employee> {
+    return this.http.get<Employee>(`${environment.apiUrl}/employee/${id}`);
   }
-  deleteEmployee(id:number):Observable<void>{
-    return this.http.delete<void>(`${environment.apiUrl}/employee/${id}`)
+  createEmployee(employee: Employee): Observable<Employee> {
+    return this.http.post<Employee>(`${environment.apiUrl}/employee`, employee);
+  }
+  deleteEmployee(id: number): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/employee/${id}`);
+  }
+  updateEmployee(employee: Employee):Observable<Employee>{
+    return this.http.put<Employee>(`${environment.apiUrl}/employee/${employee.id}`, employee)
   }
 }
